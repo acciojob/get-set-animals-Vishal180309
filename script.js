@@ -1,11 +1,10 @@
-//complete this code
 class Animal {
     constructor(species) {
-        this.species = species;
+        this._species = species;
     }
 
-    get speciesName() {
-        return this.species;
+    get species() {
+        return this._species;
     }
 
     makeSound() {
@@ -14,8 +13,8 @@ class Animal {
 }
 
 class Cat extends Animal {
-    constructor() {
-        super('Cat');
+    constructor(species) {
+        super(species);
     }
 
     purr() {
@@ -24,8 +23,8 @@ class Cat extends Animal {
 }
 
 class Dog extends Animal {
-    constructor() {
-        super('Dog');
+    constructor(species) {
+        super(species);
     }
 
     bark() {
@@ -33,19 +32,14 @@ class Dog extends Animal {
     }
 }
 
-document.getElementById('create-animal-button').addEventListener('click', function() {
-    const animal = new Animal('Lion');
-    animal.makeSound();
-});
-
 document.getElementById('create-cat-button').addEventListener('click', function() {
-    const cat = new Cat();
+    const cat = new Cat('Siamese');
     cat.makeSound();
     cat.purr();
 });
 
 document.getElementById('create-dog-button').addEventListener('click', function() {
-    const dog = new Dog();
+    const dog = new Dog('Golden Retriever');
     dog.makeSound();
     dog.bark();
 });
